@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Process Simulation Platform</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- ...existing code... -->
+</head>
+<body>
+    <div class="container">
+        <aside class="toolbar">
+            <div class="component-selector">
+                <select id="feedstockType" class="component-dropdown">
+                    <option value="">Select Feedstock Type</option>
+                    <option value="sugar">Sugar-based feedstocks</option>
+                    <option value="ligno">Lignocellulosic feedstocks</option>
+                    <option value="waste">Industrial waste</option>
+                </select>
+            </div>
+            <div id="feedstockComponents"></div>
+
+            <div class="component-selector">
+                <select id="reactorType" class="component-dropdown">
+                    <option value="">Select Reactor Type</option>
+                    <option value="batch">Batch Reactor</option>
+                    <option value="cstr">Continuous Stirred Tank</option>
+                    <option value="pfr">Plug Flow Reactor</option>
+                    <option value="fbr">Fluidized Bed Reactor</option>
+                </select>
+            </div>
+            <div id="reactorComponents"></div>
+
+            <div class="component-selector">
+                <select id="exchangerType" class="component-dropdown">
+                    <option value="">Select Heat Exchanger</option>
+                    <option value="shell">Shell and Tube</option>
+                    <option value="plate">Plate Heat Exchanger</option>
+                    <option value="spiral">Spiral Heat Exchanger</option>
+                    <option value="air">Air Cooled</option>
+                </select>
+            </div>
+            <div id="exchangerComponents"></div>
+
+            <div class="component-selector">
+                <select id="pumpType" class="component-dropdown">
+                    <option value="">Select Pump Type</option>
+                    <option value="centrifugal">Centrifugal Pump</option>
+                    <option value="positive">Positive Displacement</option>
+                    <option value="gear">Gear Pump</option>
+                    <option value="screw">Screw Pump</option>
+                </select>
+            </div>
+            <div id="pumpComponents"></div>
+
+            <div class="component-selector">
+                <select id="separatorType" class="component-dropdown">
+                    <option value="">Select Separator Type</option>
+                    <option value="distillation">Distillation Column</option>
+                    <option value="filter">Filtration Unit</option>
+                    <option value="centrifuge">Centrifuge</option>
+                    <option value="membrane">Membrane Separator</option>
+                </select>
+            </div>
+            <div id="separatorComponents"></div>
+
+            <div class="component-selector">
+                <select id="preprocessType" class="component-dropdown">
+                    <option value="">Select Pretreatment</option>
+                    <option value="grinder">Biomass Grinder</option>
+                    <option value="dryer">Dryer</option>
+                    <option value="screener">Screening Unit</option>
+                    <option value="steamer">Steam Treatment</option>
+                </select>
+            </div>
+            <div id="preprocessComponents"></div>
+
+            <div class="component-selector">
+                <select id="storageType" class="component-dropdown">
+                    <option value="">Select Storage Unit</option>
+                    <option value="tank">Storage Tank</option>
+                    <option value="silo">Biomass Silo</option>
+                    <option value="bin">Waste Bin</option>
+                    <option value="hopper">Feed Hopper</option>
+                </select>
+            </div>
+            <div id="storageComponents"></div>
+        </aside>
+        <main class="workspace">
+            <!-- Central workspace displaying process flow diagram -->
+            <svg id="flowDiagram" style="position: absolute; width: 100%; height: 100%; pointer-events: none;">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                        refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+                    </marker>
+                </defs>
+                <!-- SVG elements for arrows -->
+            </svg>
+            <!-- ...rest of workspace content... -->
+        </main>
+        <aside class="properties-panel">
+            <!-- Properties panel to edit component parameters -->
+            <h2>Properties</h2>
+            <form id="propertiesForm">
+                <!-- Form elements for properties -->
+            </form>
+            <!-- ...existing code... -->
+        </aside>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <!-- ...existing code... -->
+</body>
+</html>

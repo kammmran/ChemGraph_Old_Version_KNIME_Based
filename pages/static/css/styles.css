@@ -1,0 +1,252 @@
+/* Styles for the process simulation platform */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.toolbar {
+    width: 200px;
+    background-color: #2c3e50;
+    padding: 10px;
+    color: #ecf0f1;
+    overflow-y: auto;
+}
+
+.component {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #34495e;
+    cursor: grab;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+}
+
+.component img {
+    width: 180px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.component span {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #ecf0f1;
+}
+
+.workspace {
+    flex: 1;
+    background-color: #ecf0f1;
+    position: relative;
+}
+
+.properties-panel {
+    width: 250px;
+    background-color: #bdc3c7;
+    padding: 10px;
+    display: none; /* Initially hidden */
+}
+
+.properties-panel.visible {
+    display: block;
+}
+
+.console {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 10px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.workspace-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(52, 73, 94, 0.8);
+    padding: 5px;
+    border-radius: 4px;
+    z-index: 1;
+    position: relative;
+}
+
+.workspace-component img {
+    width: 180px;
+    height: 100px;
+    margin-bottom: 5px;
+}
+
+.workspace-component span {
+    color: #ecf0f1;
+    font-size: 12px;
+}
+
+.workspace-component.selected {
+    border: 2px solid yellow;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.connection-point {
+    width: 12px;
+    height: 12px;
+    background-color: #3498db;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.connection-point.left {
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.connection-point.right {
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.connection-point.middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.connection-point.left.middle {
+    left: -6px;
+}
+
+.connection-point.right.middle {
+    right: -6px;
+}
+
+.arrow-line {
+    position: absolute;
+    pointer-events: none;
+    stroke: #3498db;
+    stroke-width: 2;
+    marker-end: url(#arrowhead);
+}
+
+.arrow-text {
+    fill: #3498db;
+    font-size: 12px;
+    pointer-events: all;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.catalyst-select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #3498db;
+}
+
+.feedstock-selector {
+    margin-bottom: 20px;
+}
+
+.feedstock-dropdown {
+    width: 100%;
+    padding: 8px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.feedstock-dropdown option {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+#feedstockComponents {
+    margin-bottom: 20px;
+}
+
+.component-selector {
+    margin: 15px 0;
+    background-color: #34495e;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.component-selector select {
+    width: 100%;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233498db' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+}
+
+.component-selector select:hover {
+    border-color: #2ecc71;
+    background-color: #2c3e50;
+}
+
+.component-selector select:focus {
+    outline: none;
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+}
+
+.component-selector select option {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 10px;
+}
+
+#feedstockComponents,
+#reactorComponents,
+#exchangerComponents,
+#pumpComponents {
+    margin: 10px 0;
+    padding: 8px;
+    background-color: #2c3e50;
+    border-radius: 6px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+#feedstockComponents.active,
+#reactorComponents.active,
+#exchangerComponents.active,
+#pumpComponents.active {
+    max-height: 500px;
+    margin-top: 10px;
+}
